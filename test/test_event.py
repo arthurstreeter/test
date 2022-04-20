@@ -56,6 +56,10 @@ def test_invalid_duration(duration):
     [
         # TODO: add tests for edge cases
         # pytest.param(<item_a>, <item_b>, id=<test description>),
+        pytest.param(None, None, id="items are None"),
+        pytest.param(float, float, id="items are float"),
+        pytest.param(str, str, id="items are str"),
+        pytest.param(dict, dict, id="items are dict"),
     ],
 )
 def test_equal(item_a, item_b):
@@ -67,6 +71,11 @@ def test_equal(item_a, item_b):
     [
         # TODO: add tests for edge cases
         # pytest.param(<item_a>, <item_b>, id=<test description>),
+        pytest.param(None, int, id="items don't match"),
+        pytest.param(int, float, id="items don't match"),
+        pytest.param(float, str, id="items don't match"),
+        pytest.param(str, dict, id="items don't match"),
+        pytest.param(dict, None, id="items don't match"),
     ],
 )
 def test_not_equal(item_a, item_b):
@@ -78,6 +87,8 @@ def test_not_equal(item_a, item_b):
     [
         # TODO: add tests for edge cases
         # pytest.param(<start_less>, <start_more>, id=<test description>),
+        pytest.param(0, 1, id="events start 1 apart"),
+        pytest.param(250, 500, id="events start 250 apart"),
     ],
 )
 def test_less_than(start_less, start_more):
@@ -89,6 +100,7 @@ def test_less_than(start_less, start_more):
     [
         # TODO: add tests for edge cases
         # pytest.param(<unsorted_list>, <expected>, id=<test description>),
+        pytest.param([4,2,6,1,3,0,5], [0,1,2,3,4,5,6], id="7 items are sorted"),
     ],
 )
 def test_sort(unsorted_list, expected):

@@ -11,7 +11,20 @@ class Event:
             ValueError: if start/duration specifications are not met
         """
         # TODO: implement this
-        pass
+        event_args = [start, duration]
+        instance_types = [type(None), float, str, dict]
+        for v in event_args:
+            for i in instance_types:
+                if isinstance(v, i):
+                    raise ValueError(f"{v} was type {i}")
+            if v < 0:
+                raise ValueError()
+        if duration == 0:
+            raise ValueError()
+            
+        self.start = start
+        self.duration = duration
+        
 
     def __lt__(self, obj) -> bool:
         """is self's start before obj's start?
