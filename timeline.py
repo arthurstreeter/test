@@ -93,7 +93,7 @@ class Timeline:
         results = {
             "min": min(event_starts),
             "max": max(event_durations), 
-            "percent": event_max/Timeline.size
+            "percent": event_max/Timeline.size * 100
             }
         return results
 

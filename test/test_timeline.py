@@ -36,8 +36,8 @@ def test_out_of_bounds(start, duration):
     "events, expected",
     [
         # TODO: add tests for edge cases
-        pytest.param([Event(0,4),Event(4,1),Event(5,5)], {"min":0,"max":5,"percent":.5}, id="events are next to eachother"),
-        pytest.param([Event(9,1),Event(13,2),Event(16,3)], {"min":9,"max":3,"percent":.3}, id="events are spaced out"),
+        pytest.param([Event(0,4),Event(4,1),Event(5,5)], {"min":0,"max":5,"percent":50}, id="events are next to eachother"),
+        pytest.param([Event(9,1),Event(13,2),Event(16,3)], {"min":9,"max":3,"percent":30}, id="events are spaced out"),
     ],
 )
 def test_get_duration_stats(events, expected):
